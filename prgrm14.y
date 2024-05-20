@@ -1,3 +1,4 @@
+//infix to postfixx
 %{
 #include<stdio.h>    
 %}
