@@ -1,0 +1,27 @@
+%s A B C
+
+%%
+<INITIAL>a BEGIN A;
+<INITIAL>b BEGIN C;
+<INITIAL>\n BEGIN INITIAL ; printf("not accepted");
+<A>a BEGIN C;
+<A>b BEGIN B;
+<A>\n BEGIN INITIAL ; printf("NOT ACCEPTED");
+<B>a BEGIN B;
+<B>b BEGIN B;
+<B>\n BEGIN INITIAL ; printf("ACCEPTED");
+<C>a BEGIN C;
+<C>b BEGIN C;
+<C>\n BEGIN INITIAL ; printf("NOT ACCEPTED");
+. ;
+%%
+int main(){
+    printf("ENTER THE STRING");
+    yylex();
+    return 0;
+}
+int yywrap()
+{
+return 1;
+}
+

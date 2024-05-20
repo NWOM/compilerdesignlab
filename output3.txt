@@ -1,0 +1,43 @@
+Q4 LEX PROGRAM TO COUNT NUMBER OG INTEGERS AND FLOATING POINT NUMBER IN A STRING COMPRISING OF  DIGITS AND "."
+
+
+%{
+  #include<stdio.h>
+%}
+
+DIGIT [0-9]
+EXPONENT [eE][+-]?{DIGIT}+
+FLOAT {DIGIT}+"."+{DIGIT}+({EXPONENT})?
+INTEGER {DIGIT}+
+%option noyywrap
+%%
+
+{INTEGER} { printf("Integer Number: %s\n",yytext);}
+{FLOAT} {  printf("Float Numbers: %s\n",yytext);}
+.      {/*ignore*/}
+
+%%
+
+int main(){
+   yylex();
+   return 0;
+}
+
+
+OUTPUT
+sagnik@linux:~/Documents/compilerDesign$ ./a.out
+50.3 50 45 23.4
+Float Numbers: 50.3
+Integer Number: 50
+Integer Number: 45
+Float Numbers: 23.4
+
+5..8
+Float Numbers: 5..8
+
+45 23.2 4.2.3
+Integer Number: 45
+Float Numbers: 23.2
+Float Numbers: 4.2
+Integer Number: 3
+
