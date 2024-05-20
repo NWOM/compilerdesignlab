@@ -1,3 +1,4 @@
+//infix to prefix
 %{
 #include<stdio.h>
 #include<string.h>
