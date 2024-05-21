@@ -1,0 +1,112 @@
+Q1 How to create a Dataframe
+> df <- data.frame(First=c(1,2,3,4), Second=c("a","ab","cv","dsd"), Third=c(7:10))Q2 To change the row name of a DataFrame
+> rownames(df)=c("r1","r2","r3","r4")
+Q3 How to bind two matrices
+> mat4=rbind(m1,m2)
+Q4 How to Convert from a particcular type to another type?
+> variable=as.destiantiontype(prev_variable)
+Q5 How to plot a histogram for a dataframe
+hist(data_cars$speed,col="purple",main="Histogram for speed",breaks=49)
+Q6 IF ELSE BLOCK IN R
+script.R
+a <- 5
+
+if (a == 5) {
+    print("a==5")
+} else if (a < 6) {
+    print("VALUE IS LESS THAN 6")
+} else {
+    print("a>=6")
+}
+
+>Rscript script.R
+Q7 LOOP
+loops.R
+x=1:10
+for(i in x)
+{
+	print("hi")
+}
+Rscript loops.R
+
+Q8 
+for (i in seq(1, 30, by=1)) {
+    if (i == 10) {
+        break
+    }
+    print(paste0("hii", i))
+}
+
+Q9 TO CREATE  A FUNCTION 
+
+# Define the function with a different name to avoid conflict
+my_sum <- function(arg1, arg2, arg3) {
+    summ <- arg1 + arg2 + arg3
+    return(summ)
+}
+
+# Call the function and store the result
+add_num <- my_sum(10, 20, 39)
+
+# Print the result
+print(add_num)
+
+Q 10 how to plot 
+plot(cars$speed,col="purple",main="Scatter plot",xlab="speed",ylab="indices")
+>to plot b/w two attribute 
+> plot(car_data$mpg,car_data$disp,main="mpg vs disp ",xlab="mpg",ylab="disp",col="purple")
+
+
+Q 11
+BOX PLOT BETWEEN TWO ATTRIBUTES
+> boxplot(car_data$disp)
+> boxplot(car_data$disp~car_data$cyl,mtcars)
+
+
+> boxplot(car_data$disp~car_data$cyl,mtcars,col=c("purple","orange","red"))
+
+
+Q 12 TO DO CORRELATION
+> cor(car_data$mpg,car_data$cyl)
+
+
+Q 13 Perform k means using an algorithm
+
+>> cls=kmeans(car_data,3,algorithm="MacQueen")
+where 3 denotes the number of clusters nd MacQueen is the algorithm to find the cluster
+Diff Allos - -->“Hartigan-Wong”, “Lloyd”, “Forgy”, “MacQueen”
+
+Q 14 Apply Hartigan-Wong Alog
+> cls=kmeans(car_data,3,iter.max=1000,nstart=5,algorithm="Hartigan-Wong")
+> min(df$Murder)
+
+Q 15 HOW TO SCALE A DATA FRAME
+> Scaled_df=scale(df)
+
+Q 16 How to calculate the pairwise eucledian distance b/w the rows in dataframe 
+> res.dt <- dist(Scaled_df, method = "euclidean")
+> as.matrix(res.dt)
+
+
+q 17 How to convert Dataframe to matrix
+ dist_matrix=as.matrix(res.dt)[1:3,1:3]
+How to convert it back to dataframe
+> as.data.frame.matrix(dist_matrix)
+
+Q 18 HOW TO PERFROM HIERARCHICAL CLUSTERING USING COMPLETE LINAKGE
+> res.hc=hclust(res.dt,method="complete")
+
+q 19 CLUSTER DENDO GRAM
+> plot(res.hc)
+
+
+Q 20
+to cut hierarchial clustering tree to specified clusters
+> grp=cutree(res.hc,k=4)
+
+
+
+Refer aviruk github
+ 
+
+
